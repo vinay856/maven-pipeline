@@ -1,12 +1,11 @@
 pipeline {
     agent any
+tools
+	{
+		maven 'MAVEN_HOME'
+	}
     stages {
-        stage('Checkout') {
-            steps {
-                // Checkout your source code from version control
-                git 'https://github.com/your/repository.git'
-            }
-        }
+ 
         stage('Build') {
             steps {
                 // Use Maven to build your project
@@ -22,7 +21,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Deploy your artifact, if necessary
-                // Example: sh 'mvn deploy'
+                echo 'Deploying the application...'
             }
         }
     }
@@ -38,5 +37,4 @@ pipeline {
             echo 'Pipeline failed!'
         }
     }
-Note: Ensure you provide your Git repository URL on line7, save, and exit the page by clicking on ctrl+S to save and ctrl+X to exit
 } 
